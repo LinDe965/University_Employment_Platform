@@ -1,6 +1,6 @@
 package com.linde.mapper;
 
-import com.linde.domain.StudentStatus;
+import com.linde.domain.StudentResumes;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -14,6 +14,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 
 @Mapper
-public interface StudentStatusMapper extends BaseMapper<StudentStatus> {
+public interface StudentResumesMapper extends BaseMapper<StudentResumes> {
 
 }

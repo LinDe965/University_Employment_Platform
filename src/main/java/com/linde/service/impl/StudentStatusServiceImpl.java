@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Linde
- * @since 2023-03-29
+ * @since 2023-04-02
  */
 @Service
 public class StudentStatusServiceImpl extends ServiceImpl<StudentStatusMapper, StudentStatus> implements IStudentStatusService {

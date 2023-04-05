@@ -1,5 +1,6 @@
 package com.linde.domain;
 
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.time.LocalDateTime;
@@ -14,7 +15,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author Linde
- * @since 2023-03-29
+ * @since 2023-04-02
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -37,7 +38,7 @@ public class Position implements Serializable {
     /**
      * hrçš„id
      */
-    private String hrId;
+    private String companyHrId;
 
     /**
      * èŒä½åç§°
@@ -55,9 +56,18 @@ public class Position implements Serializable {
     private Integer positionSalary;
 
     /**
+     * èŒä½è¦æ±‚
+     */
+    private String positionRequire;
+
+    /**
      * å‘å¸ƒèŒä½æ—¶é—´
      */
     private LocalDateTime date;
 
+    private Integer enable;
+
+    @TableLogic(value = "0" , delval = "1")
+    private Integer deleted;
 
 }

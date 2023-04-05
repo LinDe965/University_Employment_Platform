@@ -1,6 +1,6 @@
 package com.linde.service;
 
-import com.linde.domain.Position;
+import com.linde.domain.StudentResumes;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author Linde
  * @since 2023-04-02
  */
-public interface IPositionService extends IService<Position> {
+public interface IStudentResumesService extends IService<StudentResumes> {
 
 }

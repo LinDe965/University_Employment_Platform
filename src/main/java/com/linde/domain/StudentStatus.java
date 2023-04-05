@@ -1,6 +1,5 @@
 package com.linde.domain;
 
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.time.LocalDateTime;
@@ -15,58 +14,53 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author Linde
- * @since 2023-03-29
+ * @since 2023-04-02
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("tbl_student_status")
 public class StudentStatus implements Serializable {
 
-
     private static final long serialVersionUID = 1L;
 
     /**
-     * ????????????id
+     * å­¦ç”ŸçŠ¶æ€id
      */
     @TableId(value = "status_id", type = IdType.ASSIGN_ID)
     private String statusId;
 
     /**
-     * ??????id
+     * å­¦ç”Ÿid
      */
     private String studentId;
 
     /**
-     * hr????????????é??è??
+     * hråŒæ„æ˜¯å¦é¢è¯•
      */
-
-    @TableLogic(value = "0" ,delval = "1")
     private Integer statusEnableHr;
 
     /**
-     * hr???è??é??è??????????????é??
+     * hrå…è®¸é¢è¯•çš„æ“ä½œæ—¶é—´
      */
     private LocalDateTime statusEnableHrTime;
 
     /**
-     * hr????????????è???????¨
+     * hråŒæ„æ˜¯å¦è¢«å½•ç”¨
      */
-    @TableLogic(value = "0" ,delval = "1")
     private Integer statusEnableEmploy;
 
     /**
-     * hr?????¨????????????é??
+     * hrå½•ç”¨çš„æ“ä½œæ—¶é—´
      */
     private LocalDateTime statusEnableEmployTime;
 
     /**
-     * ??????????????????é??è??
+     * å­¦ç”Ÿæ˜¯å¦å‚åŠ é¢è¯•
      */
-    @TableLogic(value = "0" ,delval = "1")
     private Integer statusEnableStudent;
 
     /**
-     * ????????????é??è??????????????é??
+     * å­¦ç”ŸåŒæ„é¢è¯•çš„æ“ä½œæ—¶é—´
      */
     private LocalDateTime statusEnableStudentTime;
 

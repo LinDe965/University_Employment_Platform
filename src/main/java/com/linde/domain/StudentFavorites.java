@@ -2,6 +2,7 @@ package com.linde.domain;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
+import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import lombok.Data;
@@ -17,31 +18,31 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("tbl_post")
-public class Post implements Serializable {
+@TableName("tbl_student_favorites")
+public class StudentFavorites implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * å²—ä½id
+     * æ”¶è—id
      */
-    @TableId(value = "post_id", type = IdType.ASSIGN_ID)
-    private String postId;
+    @TableId(value = "favorites_id", type = IdType.ASSIGN_ID)
+    private String favoritesId;
 
     /**
-     * è€å¸ˆid
+     * å­¦ç”Ÿid
      */
-    private String adminId;
+    private String studentId;
 
     /**
-     * å²—ä½ç±»åž‹
+     * èŒä½id
      */
-    private String postType;
+    private String positionId;
 
     /**
-     * å²—ä½åç§°
+     * æ”¶è—æ—¶é—´
      */
-    private String postName;
+    private LocalDateTime date;
 
 
 }

@@ -1,5 +1,6 @@
 package com.linde.controller;
 
+
 public class Result {
     private Integer code;
     private Object data;
