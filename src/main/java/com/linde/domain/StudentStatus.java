@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author Linde
- * @since 2023-04-02
+ * @since 2023-04-05
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -24,45 +24,65 @@ public class StudentStatus implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * å­¦ç”ŸçŠ¶æ€id
+     * 学生状态id
      */
     @TableId(value = "status_id", type = IdType.ASSIGN_ID)
     private String statusId;
 
     /**
-     * å­¦ç”Ÿid
+     * 学生id
      */
     private String studentId;
 
     /**
-     * hråŒæ„æ˜¯å¦é¢è¯•
+     * 学生投递状态
+     */
+    private Integer statusStudentDelivery;
+
+    /**
+     * 学生投递时间
+     */
+    private LocalDateTime statusStudentDeliveryTime;
+
+    /**
+     * hr同意面试状态
      */
     private Integer statusEnableHr;
 
     /**
-     * hrå…è®¸é¢è¯•çš„æ“ä½œæ—¶é—´
+     * hr同意面试时间
      */
     private LocalDateTime statusEnableHrTime;
 
     /**
-     * hråŒæ„æ˜¯å¦è¢«å½•ç”¨
-     */
-    private Integer statusEnableEmploy;
-
-    /**
-     * hrå½•ç”¨çš„æ“ä½œæ—¶é—´
-     */
-    private LocalDateTime statusEnableEmployTime;
-
-    /**
-     * å­¦ç”Ÿæ˜¯å¦å‚åŠ é¢è¯•
+     * 学生同意面试状态
      */
     private Integer statusEnableStudent;
 
     /**
-     * å­¦ç”ŸåŒæ„é¢è¯•çš„æ“ä½œæ—¶é—´
+     * 学生同意面试时间
      */
     private LocalDateTime statusEnableStudentTime;
+
+    /**
+     * hr录用状态
+     */
+    private Integer statusEnableEmploy;
+
+    /**
+     * hr录用时间
+     */
+    private LocalDateTime statusEnableEmployTime;
+
+    /**
+     * 学生同意入职状态
+     */
+    private LocalDateTime statusStudentAgreeTime;
+
+    /**
+     * 学生同意入职时间
+     */
+    private Integer statusStudentAgree;
 
 
 }

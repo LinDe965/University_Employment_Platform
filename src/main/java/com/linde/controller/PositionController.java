@@ -1,8 +1,13 @@
 package com.linde.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.linde.domain.Company;
+import com.linde.domain.CompanyPosition;
 import com.linde.domain.Position;
+import com.linde.service.impl.CompanyHrServiceImpl;
+import com.linde.service.impl.CompanyServiceImpl;
 import com.linde.service.impl.PositionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +30,21 @@ public class PositionController {
     @Autowired
     private PositionServiceImpl positionService;
 
+    @Autowired
+    private CompanyServiceImpl companyService;
+
+    @Autowired
+    private CompanyHrServiceImpl companyHrService;
+
+//    @GetMapping("/test")
+//    public Result getCompanyPositionDetailAll(){
+//
+//
+//      return new Result();
+//    }
+
+
+
     @PostMapping
     public Result savePostInformation(@RequestBody Position position){
         boolean flag = positionService.save(position);
@@ -44,7 +64,7 @@ public class PositionController {
                 .set(Position::getPositionRecruitNumber,position.getPositionRecruitNumber())
                 .set(Position::getPositionSalary,position.getPositionSalary())
                 .set(Position::getPositionRequire,position.getPositionRequire())
-                .set(Position::getDate,now);
+                .set(Position::getPositionUpdateTime,now);
 
         boolean flag = positionService.update(position, positionLambdaUpdateWrapper);
         return new Result(flag ? Code.UPDATE_ERR:Code.UPDATE_ERR,flag);

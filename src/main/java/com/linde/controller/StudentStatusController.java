@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author Linde
- * @since 2023-04-02
+ * @since 2023-04-05
  */
 @RestController
 @RequestMapping("/student-status")

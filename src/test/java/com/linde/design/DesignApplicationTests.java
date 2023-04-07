@@ -1,8 +1,14 @@
 package com.linde.design;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.linde.domain.Admins;
+import com.linde.domain.Company;
+import com.linde.domain.CompanyHr;
+import com.linde.domain.CompanyPosition;
 import com.linde.service.impl.AdminsServiceImpl;
+import com.linde.service.impl.CompanyHrServiceImpl;
+import com.linde.service.impl.CompanyServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,6 +22,7 @@ class DesignApplicationTests {
 
     @Autowired
     private AdminsServiceImpl adminsService;
+
 
     @Test
     public void test(){
