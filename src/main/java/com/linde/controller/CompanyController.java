@@ -20,6 +20,7 @@ import java.util.List;
  * @since 2023-04-03
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/company")
 public class CompanyController {
     @Autowired

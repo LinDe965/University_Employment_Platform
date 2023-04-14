@@ -42,7 +42,7 @@ public class StudentFavorites implements Serializable {
     /**
      * æ”¶è—æ—¶é—´
      */
-    private LocalDateTime date;
+    private LocalDateTime studentFavoritesTime;
 
 
 }

@@ -65,5 +65,5 @@ public class Admins implements Serializable {
     @TableField(select = false)
     private String password;
 
-
+    private String role;
 }

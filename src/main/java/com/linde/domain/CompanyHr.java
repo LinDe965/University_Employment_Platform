@@ -39,5 +39,6 @@ public class CompanyHr implements Serializable {
     @TableLogic(value = "0" , delval = "1")
     private Integer deleted;
 
+    private String role;
 
 }

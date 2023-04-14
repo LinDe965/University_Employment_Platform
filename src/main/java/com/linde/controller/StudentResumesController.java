@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 2023-04-02
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/studentResumes")
 public class StudentResumesController {
 

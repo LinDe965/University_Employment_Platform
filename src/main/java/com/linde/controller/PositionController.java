@@ -24,6 +24,7 @@ import java.util.List;
  * @since 2023-04-02
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/position")
 public class PositionController {
 

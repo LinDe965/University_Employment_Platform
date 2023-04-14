@@ -41,6 +41,8 @@ public class Position implements Serializable {
      */
     private String companyHrId;
 
+    private String studentId;
+
     /**
      * èŒä½åç§°
      */

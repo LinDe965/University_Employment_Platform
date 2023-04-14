@@ -40,6 +40,8 @@ public class Students implements Serializable {
      */
     private String studentName;
 
+    private String role;
+
     /**
      * å­¦ç”Ÿæ€§åˆ«
      */

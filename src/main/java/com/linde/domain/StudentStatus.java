@@ -44,15 +44,6 @@ public class StudentStatus implements Serializable {
      */
     private LocalDateTime statusStudentDeliveryTime;
 
-    /**
-     * hr同意面试状态
-     */
-    private Integer statusEnableHr;
-
-    /**
-     * hr同意面试时间
-     */
-    private LocalDateTime statusEnableHrTime;
 
     /**
      * 学生同意面试状态
@@ -65,24 +56,14 @@ public class StudentStatus implements Serializable {
     private LocalDateTime statusEnableStudentTime;
 
     /**
-     * hr录用状态
-     */
-    private Integer statusEnableEmploy;
-
-    /**
-     * hr录用时间
-     */
-    private LocalDateTime statusEnableEmployTime;
-
-    /**
      * 学生同意入职状态
      */
-    private LocalDateTime statusStudentAgreeTime;
+    private Integer statusStudentAgree;
 
     /**
      * 学生同意入职时间
      */
-    private Integer statusStudentAgree;
+    private LocalDateTime statusStudentAgreeTime;
 
 
 }
