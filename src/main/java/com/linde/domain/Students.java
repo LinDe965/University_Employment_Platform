@@ -25,14 +25,14 @@ public class Students implements Serializable {
     /**
      * å­¦å·
      */
-    @TableId(value = "student_id", type = IdType.INPUT)
+    @TableId(value = "student_id", type = IdType.ASSIGN_UUID)
     private String studentId;
 
     /**
      * å¯†ç 
      */
 
-    @TableField(select = false)
+    //@TableField(select = false)
     private String password;
 
     /**

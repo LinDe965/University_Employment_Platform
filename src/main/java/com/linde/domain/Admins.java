@@ -26,7 +26,7 @@ public class Admins implements Serializable {
     /**
      * è€å¸ˆid
      */
-    @TableId(value = "admin_id", type = IdType.INPUT)
+    @TableId(value = "admin_id", type = IdType.ASSIGN_ID)
     private String adminId;
 
     /**
@@ -62,7 +62,7 @@ public class Admins implements Serializable {
     /**
      * å¯†ç 
      */
-    @TableField(select = false)
+//    @TableField(select = false)
     private String password;
 
     private String role;

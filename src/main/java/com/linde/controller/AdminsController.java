@@ -25,9 +25,6 @@ public class AdminsController {
     @Autowired
     private AdminsServiceImpl adminsService;
 
-    @Autowired
-    private StudentsServiceImpl studentsService;
-
     //个人中心
     @GetMapping("/{adminId}")
     public Result getAdminsById(@PathVariable String adminId){

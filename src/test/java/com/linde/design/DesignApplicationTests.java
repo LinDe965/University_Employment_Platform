@@ -2,6 +2,7 @@ package com.linde.design;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.linde.domain.Admins;
 import com.linde.domain.Company;
 import com.linde.domain.CompanyHr;
@@ -26,7 +27,6 @@ class DesignApplicationTests {
 
     @Test
     public void test(){
-
 
     }
 
