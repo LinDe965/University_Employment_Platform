@@ -1,7 +1,10 @@
 package com.linde.service;
 
+import com.linde.domain.Admin.AdminHr;
 import com.linde.domain.CompanyHr;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,6 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2023-04-03
  */
 public interface ICompanyHrService extends IService<CompanyHr> {
-
-    public boolean updateCompanyHrPasswordById(Long companyHrId,String password);
+    List<AdminHr> getCompanyHrAllByAdmin();
 }

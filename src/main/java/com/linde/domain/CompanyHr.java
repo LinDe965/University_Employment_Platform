@@ -24,9 +24,9 @@ public class CompanyHr implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "company_hr_id", type = IdType.ASSIGN_ID)
-    private Long companyHrId;
+    private String companyHrId;
 
-    private Long companyId;
+    private String companyId;
 
     private String companyHrName;
 

@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author Linde
- * @since 2023-04-13
+ * @since 2023-04-17
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -23,20 +23,33 @@ public class Interview implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "interview_id", type = IdType.ASSIGN_ID)
-    private Long interviewId;
+    /**
+     * 面试id
+     */
+    @TableId(value = "stu_interview_id", type = IdType.ASSIGN_ID)
+    private String stuInterviewId;
 
-    private Long companyHrId;
+    /**
+     * 学生id
+     */
+    private String studentId;
 
-    private String studentName;
+    /**
+     * 职位id
+     */
+    private String positionId;
 
-    private String positionName;
+    /**
+     * 面试状态
+     */
+    private Integer interviewStatus;
+
+    /**
+     * 面试时间
+     */
+    private LocalDateTime interviewTime;
 
     private String interviewAddress;
 
-    private LocalDateTime interviewTime;
-
-    private String enable;
-
-
+    private Integer interviewStudentStatus;
 }

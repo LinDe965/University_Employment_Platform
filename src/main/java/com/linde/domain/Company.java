@@ -23,7 +23,7 @@ public class Company implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "company_id", type = IdType.ASSIGN_ID)
-    private Long companyId;
+    private String companyId;
 
     private String companyName;
 

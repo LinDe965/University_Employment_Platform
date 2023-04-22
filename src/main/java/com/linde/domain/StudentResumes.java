@@ -26,7 +26,7 @@ public class StudentResumes implements Serializable {
      * ç®€åŽ†è¯¦æƒ…id
      */
     @TableId(value = "student_resume_id", type = IdType.ASSIGN_ID)
-    private Long studentResumeId;
+    private String studentResumeId;
 
     /**
      * å­¦ç”Ÿid

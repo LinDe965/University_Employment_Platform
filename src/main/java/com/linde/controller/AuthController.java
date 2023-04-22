@@ -3,15 +3,11 @@ package com.linde.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.linde.domain.Admins;
 import com.linde.domain.CompanyHr;
-import com.linde.domain.LoginDto;
 import com.linde.domain.Students;
 import com.linde.service.impl.AdminsServiceImpl;
 import com.linde.service.impl.CompanyHrServiceImpl;
 import com.linde.service.impl.StudentsServiceImpl;
-import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -83,5 +79,23 @@ public class AuthController {
             }
         }
         return new Result(null,null,null);
+    }
+
+    @PostMapping("/cookie/companyHrId")
+    public String getCookieCompanyHrId(String companyHrId){
+        System.out.println("companyHrId:"+companyHrId);
+        return companyHrId;
+    }
+
+    @PostMapping("/cookie/studentId")
+    public String getCookieStudentId(String studentId){
+        System.out.println("studentId:"+studentId);
+        return studentId;
+    }
+
+    @PostMapping("/cookie/adminId")
+    public String getCookieAdminId(String adminId){
+        System.out.println("adminId:"+adminId);
+        return adminId;
     }
 }

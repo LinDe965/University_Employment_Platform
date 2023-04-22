@@ -1,6 +1,7 @@
 package com.linde.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.linde.domain.Admins;
 import com.linde.domain.Students;
@@ -25,6 +26,15 @@ public class AdminsController {
     @Autowired
     private AdminsServiceImpl adminsService;
 
+    @PostMapping("/password")
+    public Result updateAdminsPasswordById(@RequestParam String adminId,@RequestParam String password){
+        LambdaUpdateWrapper<Admins> adminsLambdaUpdateWrapper = new LambdaUpdateWrapper<>();
+        adminsLambdaUpdateWrapper.eq(Admins::getAdminId,adminId)
+                .set(Admins::getPassword,password);
+        boolean flag = adminsService.update(null, adminsLambdaUpdateWrapper);
+        return new Result(flag ? Code.UPDATE_ERR:Code.UPDATE_ERR,flag);
+    }
+
     //个人中心
     @GetMapping("/{adminId}")
     public Result getAdminsById(@PathVariable String adminId){
@@ -37,12 +47,6 @@ public class AdminsController {
     @PutMapping
     public Result updateAdminsAll(@RequestBody Admins admins){
         boolean flag = adminsService.updateAdminsDetailsAll(admins);
-        return new Result(flag ? Code.UPDATE_ERR:Code.UPDATE_ERR,flag);
-    }
-
-    @PutMapping("/update")
-    public Result updateAdminsPasswordById(@RequestParam String adminId,@RequestParam String password){
-        boolean flag = adminsService.updateAdminsPasswordById(adminId,password);
         return new Result(flag ? Code.UPDATE_ERR:Code.UPDATE_ERR,flag);
     }
 

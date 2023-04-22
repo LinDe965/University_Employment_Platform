@@ -1,7 +1,6 @@
 package com.linde.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.linde.domain.Admins;
+import com.linde.domain.Student.StudentOneResumes;
 import com.linde.domain.Students;
 import com.linde.mapper.StudentsMapper;
 import com.linde.service.IStudentsService;
@@ -32,5 +31,10 @@ public class StudentsServiceImpl extends ServiceImpl<StudentsMapper, Students> i
         students.setStudentId(studentId);
         students.setPassword(password);
         return studentsMapper.updateById(students) > 0;
+    }
+
+    @Override
+    public StudentOneResumes getStudentResumesByStudentId(String studentId) {
+        return studentsMapper.getStudentsResumesByStudentId(studentId);
     }
 }

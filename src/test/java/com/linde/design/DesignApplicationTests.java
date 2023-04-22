@@ -1,22 +1,12 @@
 package com.linde.design;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.linde.domain.Admins;
-import com.linde.domain.Company;
-import com.linde.domain.CompanyHr;
-import com.linde.domain.CompanyPosition;
-import com.linde.service.impl.AdminsServiceImpl;
-import com.linde.service.impl.CompanyHrServiceImpl;
-import com.linde.service.impl.CompanyServiceImpl;
+import com.linde.domain.Interview;
+import com.linde.service.impl.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.web.bind.annotation.PathVariable;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @SpringBootTest
 class DesignApplicationTests {
@@ -24,10 +14,31 @@ class DesignApplicationTests {
     @Autowired
     private AdminsServiceImpl adminsService;
 
+    @Autowired
+    private PositionServiceImpl positionService;
+
+    @Autowired
+    private DeliverServiceImpl deliverService;
+
+    @Autowired
+    private StudentResumesServiceImpl studentResumesService;
+
+    @Autowired
+    private InterviewServiceImpl interviewService;
+
+    @Autowired
+    private StudentsServiceImpl studentsService;
+
+    @Test
+    public void studentTest(){
+        String studentId = "211999888";
+        System.out.println("结果为："+studentsService.getStudentResumesByStudentId(studentId));
+    }
 
     @Test
     public void test(){
-
+        String hrId = "1643174176988614658";
+        System.out.println("查询结果："+interviewService.getStudentInterviewByHrId(hrId));
     }
 
     @Test

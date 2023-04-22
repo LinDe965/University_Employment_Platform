@@ -1,5 +1,6 @@
 package com.linde.service;
 
+import com.linde.domain.Student.StudentOneResumes;
 import com.linde.domain.Students;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -15,4 +16,6 @@ import java.util.List;
  */
 public interface IStudentsService extends IService<Students> {
     public boolean updateStudentsPasswordById(String studentId,String password);
+
+    public StudentOneResumes getStudentResumesByStudentId(String studentId);
 }

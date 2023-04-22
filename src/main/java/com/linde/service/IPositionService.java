@@ -1,7 +1,10 @@
 package com.linde.service;
 
+import com.linde.domain.Admin.AdminPosition;
 import com.linde.domain.Position;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IPositionService extends IService<Position> {
 
+    //public Position createPosition(Long companyHrId , Position position);
+
+    List<Position> getByHrIdPositionInformation(String companyHrId);
+
+    List<AdminPosition> getPositionByAdmin();
 }

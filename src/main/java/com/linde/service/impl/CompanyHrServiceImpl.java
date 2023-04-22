@@ -1,11 +1,14 @@
 package com.linde.service.impl;
 
+import com.linde.domain.Admin.AdminHr;
 import com.linde.domain.CompanyHr;
 import com.linde.mapper.CompanyHrMapper;
 import com.linde.service.ICompanyHrService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -22,10 +25,7 @@ public class CompanyHrServiceImpl extends ServiceImpl<CompanyHrMapper, CompanyHr
     private CompanyHrMapper companyHrMapper;
 
     @Override
-    public boolean updateCompanyHrPasswordById(Long companyHrId, String password) {
-        CompanyHr companyHr = new CompanyHr();
-        companyHr.setCompanyHrId(companyHrId);
-        companyHr.setPassword(password);
-        return companyHrMapper.updateById(companyHr) > 0;
+    public List<AdminHr> getCompanyHrAllByAdmin() {
+        return companyHrMapper.getCompanyHrAllByAdmin();
     }
 }

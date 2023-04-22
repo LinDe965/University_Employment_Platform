@@ -18,38 +18,33 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("tbl_signing")
-public class Signing implements Serializable {
+@TableName("tbl_favorites")
+public class Favorites implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 学生签约id
+     * æ”¶è—id
      */
-    @TableId(value = "stu_signing_id", type = IdType.ASSIGN_ID)
-    private String stuSigningId;
+    @TableId(value = "favorites_id", type = IdType.ASSIGN_ID)
+    private String favoritesId;
 
     /**
-     * 学生id
+     * å­¦ç”Ÿid
      */
     private String studentId;
 
     /**
-     * 职位id
+     * èŒä½id
      */
     private String positionId;
 
-    /**
-     * 签约状态
-     */
-    private Integer signingStatus;
+    private Integer favoritesStatus;
 
     /**
-     * 签约时间
+     * æ”¶è—æ—¶é—´
      */
-    private LocalDateTime signingTime;
+    private LocalDateTime studentFavoritesTime;
 
-    private String signingAddress;
 
-    private Integer signingStudentStatus;
 }

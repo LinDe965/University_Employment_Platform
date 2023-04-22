@@ -14,20 +14,20 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author Linde
- * @since 2023-04-02
+ * @since 2023-04-17
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("tbl_student_favorites")
-public class StudentFavorites implements Serializable {
+@TableName("tbl_deliver")
+public class Deliver implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
      * æ”¶è—id
      */
-    @TableId(value = "favorites_id", type = IdType.ASSIGN_ID)
-    private String favoritesId;
+    @TableId(value = "deliver_id", type = IdType.ASSIGN_ID)
+    private String deliverId;
 
     /**
      * å­¦ç”Ÿid
@@ -39,10 +39,12 @@ public class StudentFavorites implements Serializable {
      */
     private String positionId;
 
+    private Integer deliverStatus;
+
     /**
      * æ”¶è—æ—¶é—´
      */
-    private LocalDateTime studentFavoritesTime;
+    private LocalDateTime deliverTime;
 
 
 }

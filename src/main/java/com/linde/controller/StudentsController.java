@@ -2,6 +2,7 @@ package com.linde.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.linde.domain.Student.StudentOneResumes;
 import com.linde.domain.Students;
 import com.linde.service.impl.StudentsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,23 @@ public class StudentsController {
 
     @Autowired
     private StudentsServiceImpl studentsService;
+
+    @PostMapping("/password")
+    public Result updateStudentPasswordById(@RequestParam String studentId,@RequestParam String password){
+        LambdaUpdateWrapper<Students> studentsLambdaUpdateWrapper = new LambdaUpdateWrapper<>();
+        studentsLambdaUpdateWrapper.eq(Students::getStudentId,studentId)
+                .set(Students::getPassword,password);
+        boolean flag = studentsService.update(null, studentsLambdaUpdateWrapper);
+        return new Result(flag ? Code.UPDATE_ERR:Code.UPDATE_ERR,flag);
+    }
+
+    @GetMapping("/studentId")
+    public Result getStudentResumesByStudentId(@RequestParam String studentId){
+        StudentOneResumes studentResumesByStudentId = studentsService.getStudentResumesByStudentId(studentId);
+        Integer code = studentResumesByStudentId != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = studentResumesByStudentId != null ? "数据查询成功!" : "数据查询失败,请重试!";
+        return new Result(code, studentResumesByStudentId,msg);
+    }
 
     @PostMapping
     public Result saveStudentsInformation(@RequestBody Students students){

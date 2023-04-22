@@ -39,7 +39,7 @@ public class CodeGenerator {
 
         //策略设置
         StrategyConfig strategyConfig = new StrategyConfig();
-        strategyConfig.setInclude("tbl_interview");        //设置当前参与生成的表名，参数为可变参数
+        strategyConfig.setInclude("tbl_deliver");        //设置当前参与生成的表名，参数为可变参数
         strategyConfig.setTablePrefix("tbl_");          //设置数据库表的前缀名称， 模块名 = 数据库表名 - 前缀名 例如：User = tbl_user
         strategyConfig.setRestControllerStyle(true);    //设置是否启用rest风格
         //strategyConfig.setVersionFieldName("version");  //设置乐观锁字段名

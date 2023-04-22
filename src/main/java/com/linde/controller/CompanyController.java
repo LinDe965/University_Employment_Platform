@@ -26,6 +26,14 @@ public class CompanyController {
     @Autowired
     private CompanyServiceImpl companyService;
 
+    @GetMapping
+    public Result getCompanyAllByAdmin(){
+        List<Company> companyList = companyService.list();
+        Integer code = companyList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = companyList != null ? "数据查询成功!" : "数据查询失败,请重试!";
+        return new Result(code,companyList,msg);
+    }
+
     @PostMapping
     public Result saveCompanyInformation(@RequestBody Company company){
         boolean flag = companyService.save(company);
@@ -46,7 +54,7 @@ public class CompanyController {
     }
 
     @DeleteMapping("/{companyId}")
-    public Result deleteCompanyInformation(@PathVariable Long companyId){
+    public Result deleteCompanyInformation(@PathVariable String companyId){
         boolean flag = companyService.removeById(companyId);
         return new Result(flag ? Code.DELETE_OK:Code.DELETE_ERR,flag);
     }
@@ -64,12 +72,6 @@ public class CompanyController {
         return new Result(code,company,msg);
     }
 
-    @GetMapping
-    public Result getCompanyInformationAll(){
-        List<Company> companyList = companyService.list();
-        Integer code = companyList != null ? Code.GET_OK : Code.GET_ERR;
-        String msg = companyList != null ? "数据查询成功!" : "数据查询失败,请重试!";
-        return new Result(code,companyList,msg);
-    }
+
 }
 

@@ -1,10 +1,9 @@
 package com.linde.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.linde.domain.Company;
-import com.linde.domain.CompanyPosition;
+import com.baomidou.mybatisplus.extension.api.R;
+import com.linde.domain.Admin.AdminPosition;
 import com.linde.domain.Position;
 import com.linde.service.impl.CompanyHrServiceImpl;
 import com.linde.service.impl.CompanyServiceImpl;
@@ -31,19 +30,21 @@ public class PositionController {
     @Autowired
     private PositionServiceImpl positionService;
 
-    @Autowired
-    private CompanyServiceImpl companyService;
+    @GetMapping("/admin")
+    public Result getPositionByAdmin(){
+        List<AdminPosition> positionByAdmin = positionService.getPositionByAdmin();
+        Integer code = positionByAdmin != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = positionByAdmin != null ? "数据查询成功!" : "数据查询失败,请重试!";
+        return new Result(code,positionByAdmin,msg);
+    }
 
-    @Autowired
-    private CompanyHrServiceImpl companyHrService;
-
-//    @GetMapping("/test")
-//    public Result getCompanyPositionDetailAll(){
-//
-//
-//      return new Result();
-//    }
-
+    @GetMapping("/getByHrId")
+    public Result getByHrIdPositionInformation(@RequestParam String companyHrId){
+        List<Position> positionList = positionService.getByHrIdPositionInformation(companyHrId);
+        Integer code = positionList != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = positionList != null ? "数据查询成功!" : "数据查询失败,请重试!";
+        return new Result(code,positionList,msg);
+    }
 
 
     @PostMapping
@@ -87,13 +88,8 @@ public class PositionController {
         return new Result(code,positionServiceById,msg);
     }
 
-//    @GetMapping
-//    public Result getPostInformationAll(){
-//        List<Position> positionList = positionService.list();
-//        Integer code = positionList != null ? Code.GET_OK : Code.GET_ERR;
-//        String msg = positionList != null ? "数据查询成功!" : "数据查询失败,请重试!";
-//        return new Result(code,positionList,msg);
-//    }
+
+
 
 }
 
