@@ -18,5 +18,5 @@ import java.util.List;
 public interface IStudentResumesService extends IService<StudentResumes> {
     public List<HrStudentResumes> getStudentResumesByCompanyHrId(String companyHrId);
 
-
+    List<HrStudentResumes> getStudentResumesLikeByHr(String companyHrId,String studentName);
 }

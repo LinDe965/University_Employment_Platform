@@ -6,6 +6,9 @@ import java.time.LocalDateTime;
 
 @Data
 public class StudentFavorites {
+
+    private String favoritesId;
+
     private String companyName;
 
     private String companyHrName;

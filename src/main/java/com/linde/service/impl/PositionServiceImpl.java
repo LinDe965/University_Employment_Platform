@@ -1,6 +1,9 @@
 package com.linde.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.linde.domain.Admin.AdminPosition;
+import com.linde.domain.Pos.PositionDetail;
+import com.linde.domain.Pos.PositionNews;
 import com.linde.domain.Position;
 import com.linde.mapper.PositionMapper;
 import com.linde.service.IPositionService;
@@ -33,5 +36,22 @@ public class PositionServiceImpl extends ServiceImpl<PositionMapper, Position> i
     public List<AdminPosition> getPositionByAdmin() {
         return positionMapper.getPositionByAdmin();
     }
+
+    //招聘信息列表接口
+    @Override
+    public List<PositionNews> getFrontPositionDetail() {
+        return positionMapper.getFrontPositionDetail();
+    }
+
+    @Override
+    public PositionDetail getFrontPositionDetailInformation(String positionId) {
+        return positionMapper.getFrontPositionDetailInformation(positionId);
+    }
+
+    @Override
+    public List<AdminPosition> getPositionLikeByAdmin(String positionName) {
+        return positionMapper.getPositionLikeByAdmin(positionName);
+    }
+
 
 }

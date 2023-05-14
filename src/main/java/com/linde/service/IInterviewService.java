@@ -18,4 +18,9 @@ import java.util.List;
 public interface IInterviewService extends IService<Interview> {
     List<HrStudentInterview> getStudentInterviewByHrId(String companyHrId);
     List<StudentInterview> getStudentInterviewByStudentId(String studentId);
+
+    boolean saveStudentInterviewByHr(String companyHrId,String studentName,String positionName,String interviewAddress);
+    List<HrStudentInterview> getStudentInterviewLikeByHr(String companyHrId,String studentName);
+
+    List<StudentInterview> getStudentInterviewLikeByStudent(String studentId,String positionName);
 }

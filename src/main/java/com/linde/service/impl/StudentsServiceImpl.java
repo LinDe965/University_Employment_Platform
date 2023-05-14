@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Year;
 import java.util.List;
 
 /**
@@ -36,5 +37,15 @@ public class StudentsServiceImpl extends ServiceImpl<StudentsMapper, Students> i
     @Override
     public StudentOneResumes getStudentResumesByStudentId(String studentId) {
         return studentsMapper.getStudentsResumesByStudentId(studentId);
+    }
+
+    @Override
+    public List<Students> getStudentsInformationAll() {
+        return studentsMapper.getStudentsInformationAll();
+    }
+
+    @Override
+    public boolean updateStudentsInformationByAdmin(String studentId, String studentName, Integer studentAge, String studentTel, String studentDepartment, String studentSubject, Year studentEndYear, Integer deleted) {
+        return studentsMapper.updateStudentsInformationByAdmin(studentId, studentName, studentAge, studentTel, studentDepartment, studentSubject, studentEndYear, deleted) > 0;
     }
 }

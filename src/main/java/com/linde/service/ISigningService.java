@@ -1,6 +1,7 @@
 package com.linde.service;
 
 import com.linde.domain.Admin.AdminEmploy;
+import com.linde.domain.Hr.HrStudentInterview;
 import com.linde.domain.Hr.HrStudentSigning;
 import com.linde.domain.Signing;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -23,4 +24,12 @@ public interface ISigningService extends IService<Signing> {
     List<StudentSigning> getStudentSigningByStudentId(String studentId);
 
     List<AdminEmploy> getStudentSigningByAdmin();
+
+    boolean saveStudentSigningByHr(String companyHrId,String studentName,String positionName,String signingAddress);
+
+    List<HrStudentSigning> getStudentSigningLikeByHr(String companyHrId,String studentName);
+
+    List<StudentSigning> getStudentSigningLikeByStudent(String studentId,String positionName);
+
+    List<AdminEmploy> getStudentSigningLikeByAdmin(String studentName);
 }

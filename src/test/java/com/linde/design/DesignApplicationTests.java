@@ -2,6 +2,7 @@ package com.linde.design;
 
 
 import com.linde.domain.Admins;
+import com.linde.domain.Hr.HrStudentInterview;
 import com.linde.domain.Interview;
 import com.linde.service.impl.*;
 import org.junit.jupiter.api.Test;
@@ -29,6 +30,7 @@ class DesignApplicationTests {
     @Autowired
     private StudentsServiceImpl studentsService;
 
+
     @Test
     public void studentTest(){
         String studentId = "211999888";
@@ -37,8 +39,12 @@ class DesignApplicationTests {
 
     @Test
     public void test(){
-        String hrId = "1643174176988614658";
-        System.out.println("查询结果："+interviewService.getStudentInterviewByHrId(hrId));
+        HrStudentInterview hrStudentInterview = new HrStudentInterview();
+        hrStudentInterview.setInterviewAddress("test1");
+        hrStudentInterview.setStudentName("test");
+        hrStudentInterview.setPositionName("测试1");
+
+        ///System.out.println("结果为："+interviewService.saveStudentInterviewByHr(hrStudentInterview));
     }
 
     @Test

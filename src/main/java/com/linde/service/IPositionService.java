@@ -1,8 +1,11 @@
 package com.linde.service;
 
 import com.linde.domain.Admin.AdminPosition;
+import com.linde.domain.Pos.PositionDetail;
+import com.linde.domain.Pos.PositionNews;
 import com.linde.domain.Position;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -21,4 +24,13 @@ public interface IPositionService extends IService<Position> {
     List<Position> getByHrIdPositionInformation(String companyHrId);
 
     List<AdminPosition> getPositionByAdmin();
+
+    //招聘信息列表接口
+    List<PositionNews> getFrontPositionDetail();
+
+    PositionDetail getFrontPositionDetailInformation(String positionId);
+
+    List<AdminPosition> getPositionLikeByAdmin(String positionName);
+
+
 }

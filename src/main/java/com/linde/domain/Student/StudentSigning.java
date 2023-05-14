@@ -6,9 +6,11 @@ import java.time.LocalDateTime;
 
 @Data
 public class StudentSigning {
+    private String signingId;
     private String companyName;
     private String companyHrName;
     private String positionName;
     private LocalDateTime signingTime;
     private Integer signingStudentStatus;
+    private Integer signingStatus;
 }

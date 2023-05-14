@@ -6,6 +6,8 @@ import java.time.Year;
 
 @Data
 public class HrStudentResumes {
+    private String  studentId;
+
     private String studentName;
 
     private String studentTel;

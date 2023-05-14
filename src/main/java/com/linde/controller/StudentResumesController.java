@@ -27,6 +27,31 @@ public class StudentResumesController {
     @Autowired
     private StudentResumesServiceImpl studentResumesService;
 
+    //stu端简历修改
+    @PutMapping("/update/student/resume")
+    public Result updateStudentResumeByStudent(@RequestParam String studentId,
+                                               @RequestParam String resumeExperience,
+                                               @RequestParam String resumeSkills,
+                                               @RequestParam String resumeEvaluation,
+                                               @RequestParam String resumeSalaryExpectation){
+        LambdaUpdateWrapper<StudentResumes> studentResumesLambdaUpdateWrapper = new LambdaUpdateWrapper<>();
+        studentResumesLambdaUpdateWrapper.eq(StudentResumes::getStudentId,studentId)
+                .set(StudentResumes::getResumeExperience,resumeExperience)
+                .set(StudentResumes::getResumeSkills,resumeSkills)
+                .set(StudentResumes::getResumeEvaluation,resumeEvaluation)
+                .set(StudentResumes::getResumeSalaryExpectation,resumeSalaryExpectation);
+        boolean flag = studentResumesService.update(studentResumesLambdaUpdateWrapper);
+        return new Result(flag ? Code.UPDATE_OK : Code.UPDATE_ERR , flag);
+    }
+
+    @GetMapping("/hr/like")
+    public Result getStudentResumesLikeByHr(@RequestParam String companyHrId,@RequestParam String studentName){
+        List<HrStudentResumes> studentResumesLikeByHr = studentResumesService.getStudentResumesLikeByHr(companyHrId, studentName);
+        Integer code = studentResumesLikeByHr != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = studentResumesLikeByHr != null ? "数据查询成功!" : "数据查询失败,请重试!";
+        return new Result(code,studentResumesLikeByHr,msg);
+    }
+
     @GetMapping("/hrResumesStudent")
     public Result getStudentResumesByCompanyHrId(@RequestParam String companyHrId){
         List<HrStudentResumes> studentResumesByCompanyHrId = studentResumesService.getStudentResumesByCompanyHrId(companyHrId);

@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -28,4 +29,11 @@ public class FavoritesServiceImpl extends ServiceImpl<FavoritesMapper, Favorites
     public List<StudentFavorites> getStudentFavoriteByStudentId(String studentId) {
         return favoritesMapper.getStudentFavoriteByStudentId(studentId);
     }
+
+    @Override
+    public List<StudentFavorites> getStudentFavoriteLikeByStudent(String studentId, String positionName) {
+        return favoritesMapper.getStudentFavoriteLikeByStudent(studentId, positionName);
+    }
+
+
 }

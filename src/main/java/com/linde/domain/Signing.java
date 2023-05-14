@@ -1,10 +1,11 @@
 package com.linde.domain;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -26,8 +27,8 @@ public class Signing implements Serializable {
     /**
      * 学生签约id
      */
-    @TableId(value = "stu_signing_id", type = IdType.ASSIGN_ID)
-    private String stuSigningId;
+    @TableId(value = "signing_id", type = IdType.ASSIGN_ID)
+    private String signingId;
 
     /**
      * 学生id
@@ -47,6 +48,8 @@ public class Signing implements Serializable {
     /**
      * 签约时间
      */
+    @TableField(value = "signing_time",fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime signingTime;
 
     private String signingAddress;

@@ -1,6 +1,7 @@
 package com.linde.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.linde.domain.Admins;
@@ -25,6 +26,16 @@ import org.springframework.web.bind.annotation.*;
 public class AdminsController {
     @Autowired
     private AdminsServiceImpl adminsService;
+
+
+    //Admin端个人信息获取
+    @GetMapping("/getOne")
+    public Result getAdminDetailByAdminId(@RequestParam String adminId){
+        Admins admins = adminsService.getById(adminId);
+        Integer code = admins != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = admins != null ? "数据查询成功!" : "数据查询失败,请重试!";
+        return new Result(code,admins,msg);
+    }
 
     @PostMapping("/password")
     public Result updateAdminsPasswordById(@RequestParam String adminId,@RequestParam String password){

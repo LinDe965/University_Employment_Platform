@@ -3,6 +3,7 @@ package com.linde.service;
 import com.linde.domain.Admin.AdminHr;
 import com.linde.domain.CompanyHr;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.linde.domain.Hr.CompanyByHr;
 
 import java.util.List;
 
@@ -16,4 +17,8 @@ import java.util.List;
  */
 public interface ICompanyHrService extends IService<CompanyHr> {
     List<AdminHr> getCompanyHrAllByAdmin();
+
+    List<AdminHr> getCompanyHrAllLikeByAdmin(String companyHrName);
+
+    CompanyByHr getCompanyHrDetailByCompanyHrId(String companyHrId);
 }

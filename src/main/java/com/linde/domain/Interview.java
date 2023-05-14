@@ -1,10 +1,11 @@
 package com.linde.domain;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
-import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -26,8 +27,8 @@ public class Interview implements Serializable {
     /**
      * 面试id
      */
-    @TableId(value = "stu_interview_id", type = IdType.ASSIGN_ID)
-    private String stuInterviewId;
+    @TableId(value = "interview_id", type = IdType.ASSIGN_ID)
+    private String interviewId;
 
     /**
      * 学生id
@@ -47,6 +48,8 @@ public class Interview implements Serializable {
     /**
      * 面试时间
      */
+    @TableField(value = "interview_time",fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private LocalDateTime interviewTime;
 
     private String interviewAddress;

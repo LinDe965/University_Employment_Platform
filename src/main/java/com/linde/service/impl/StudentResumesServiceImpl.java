@@ -29,4 +29,9 @@ public class StudentResumesServiceImpl extends ServiceImpl<StudentResumesMapper,
     public List<HrStudentResumes> getStudentResumesByCompanyHrId(String companyHrId) {
         return studentResumesMapper.getStudentResumesByCompanyHrId(companyHrId);
     }
+
+    @Override
+    public List<HrStudentResumes> getStudentResumesLikeByHr(String companyHrId, String studentName) {
+        return studentResumesMapper.getStudentResumesLikeByHr(companyHrId,studentName);
+    }
 }

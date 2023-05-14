@@ -5,6 +5,8 @@ import lombok.Data;
 import java.time.LocalDateTime;
 @Data
 public class StudentInterview {
+    private String interviewId;
+
     private String companyName;
 
     private String companyHrName;
@@ -14,4 +16,6 @@ public class StudentInterview {
     private LocalDateTime interviewTime;
 
     private Integer interviewStudentStatus;
+
+    private Integer interviewStatus;
 }

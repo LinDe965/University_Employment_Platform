@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 @Data
 public class HrStudentDeliver {
+    private String deliverId;
     private String studentName;
     private String studentSubject;
     private String positionName;

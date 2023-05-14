@@ -4,6 +4,7 @@ import com.linde.domain.Favorites;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.linde.domain.Student.StudentFavorites;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -15,5 +16,8 @@ import java.util.List;
  * @since 2023-04-17
  */
 public interface IFavoritesService extends IService<Favorites> {
-    List<StudentFavorites> getStudentFavoriteByStudentId(String studentId);
+     List<StudentFavorites> getStudentFavoriteByStudentId(String studentId);
+
+     List<StudentFavorites> getStudentFavoriteLikeByStudent(String studentId,String positionName);
+
 }

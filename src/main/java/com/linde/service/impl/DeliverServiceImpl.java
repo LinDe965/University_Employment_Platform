@@ -34,4 +34,14 @@ public class DeliverServiceImpl extends ServiceImpl<DeliverMapper, Deliver> impl
     public List<StudentDeliver> getStudentDeliverByStudentId(String studentId) {
         return deliverMapper.getStudentDeliverByStudentId(studentId);
     }
+
+    @Override
+    public List<HrStudentDeliver> getPositionLikeByHr(String companyHrId,String studentName) {
+        return deliverMapper.getPositionLikeByHr(companyHrId,studentName);
+    }
+
+    @Override
+    public List<StudentDeliver> getStudentDeliverLikeByStudent(String studentId, String positionName) {
+        return deliverMapper.getStudentDeliverLikeByStudent(studentId, positionName);
+    }
 }

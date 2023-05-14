@@ -4,6 +4,7 @@ package com.linde.controller;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.linde.domain.Admin.AdminHr;
 import com.linde.domain.CompanyHr;
+import com.linde.domain.Hr.CompanyByHr;
 import com.linde.service.impl.CompanyHrServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,34 @@ import java.util.List;
 public class CompanyHrController {
     @Autowired
     private CompanyHrServiceImpl companyHrService;
+
+    //hr端获取个人信息
+    @GetMapping("/getCompanyHrOne")
+    public Result getCompanyHrDetailByCompanyHrId(@RequestParam String companyHrId){
+        CompanyByHr companyHrDetailByCompanyHrId = companyHrService.getCompanyHrDetailByCompanyHrId(companyHrId);
+        Integer code = companyHrDetailByCompanyHrId != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = companyHrDetailByCompanyHrId != null ? "数据查询成功!" : "数据查询失败,请重试!";
+        return new Result(code,companyHrDetailByCompanyHrId,msg);
+    }
+
+    //admin端Hr禁用启用
+    @PutMapping("/update/companyHrDeleted")
+    public Result updateCompanyHrDeletedByAdmin(@RequestParam String companyHrId,@RequestParam Integer deleted){
+        LambdaUpdateWrapper<CompanyHr> companyHrLambdaUpdateWrapper = new LambdaUpdateWrapper<>();
+        companyHrLambdaUpdateWrapper.eq(CompanyHr::getCompanyHrId,companyHrId).set(CompanyHr::getDeleted,deleted);
+        boolean flag = companyHrService.update(companyHrLambdaUpdateWrapper);
+        return new Result(flag ? Code.UPDATE_OK:Code.UPDATE_ERR,flag);
+    }
+
+
+    //admin端hr模糊搜索
+    @GetMapping("/admin/like")
+    public Result getCompanyHrAllLikeByAdmin(@RequestParam String companyHrName){
+        List<AdminHr> companyHrAllLikeByAdmin = companyHrService.getCompanyHrAllLikeByAdmin(companyHrName);
+        Integer code = companyHrAllLikeByAdmin != null ? Code.GET_OK : Code.GET_ERR;
+        String msg = companyHrAllLikeByAdmin != null ? "数据查询成功!" : "数据查询失败,请重试!";
+        return new Result(code,companyHrAllLikeByAdmin,msg);
+    }
 
     //修改个人密码
     @PostMapping("/password")

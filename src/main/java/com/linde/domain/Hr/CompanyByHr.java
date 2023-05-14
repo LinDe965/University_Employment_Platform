@@ -1,12 +1,16 @@
-package com.linde.domain.Admin;
+package com.linde.domain.Hr;
 
 import lombok.Data;
 
 @Data
-public class AdminHr {
-    private String companyHrId;
+public class CompanyByHr {
+    private String companyId;
 
     private String companyName;
+
+    private String companyAddress;
+
+    private String companyHrId;
 
     private String companyHrName;
 
@@ -14,5 +18,5 @@ public class AdminHr {
 
     private String companyHrEmail;
 
-    private Integer deleted;
+
 }

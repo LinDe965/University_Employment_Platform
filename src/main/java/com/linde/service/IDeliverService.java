@@ -19,4 +19,8 @@ public interface IDeliverService extends IService<Deliver> {
     public List<HrStudentDeliver> getStudentDeliver(String companyHrId);
 
     public List<StudentDeliver> getStudentDeliverByStudentId(String studentId);
+    List<HrStudentDeliver> getPositionLikeByHr(String companyHrId,String studentName);
+
+    List<StudentDeliver> getStudentDeliverLikeByStudent(String studentId,String positionName);
+
 }
