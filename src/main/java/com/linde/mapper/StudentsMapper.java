@@ -41,19 +41,12 @@ public interface StudentsMapper extends BaseMapper<Students> {
     @Select("select * from tbl_students;")
     List<Students> getStudentsInformationAll();
 
-    @Select("select stu.student_id, " +
-            "stu.student_name, " +
-            "stu.student_sex, " +
-            "stu.student_age, " +
-            "stu.student_tel, " +
-            "stu.student_email, " +
-            "stu.student_id_cards, " +
-            "stu.student_end_year, " +
-            "stu.student_subject, " +
-            "stu.student_department," +
+    @Select("select stu.student_id, stu.student_name,stu.student_sex, " +
+            "stu.student_age, stu.student_tel, stu.student_email, " +
+            "stu.student_id_cards,stu.student_end_year, " +
+            "stu.student_subject, stu.student_department," +
             "stu.deleted ," +
-            "res.resume_experience, " +
-            "res.resume_skills, " +
+            "res.resume_experience, res.resume_skills, " +
             "res.resume_evaluation, " +
             "res.resume_salary_expectation " +
             "from tbl_students as stu " +

@@ -37,8 +37,7 @@ public interface InterviewMapper extends BaseMapper<Interview> {
             "stu.student_name LIKE CONCAT('%', #{studentName}, '%');")
     List<HrStudentInterview> getStudentInterviewLikeByHr(String companyHrId,String studentName);
 
-    @Select("select " +
-            "stu.student_name,pos.position_name," +
+    @Select("select stu.student_name,pos.position_name," +
             "interview.interview_id," +
             "interview.interview_address," +
             "interview.interview_time,interview.interview_status," +
@@ -50,9 +49,9 @@ public interface InterviewMapper extends BaseMapper<Interview> {
             "where hr.company_hr_id = #{companyHrId};")
     List<HrStudentInterview> getStudentInterviewByHrId(String companyHrId);
 
-    @Select("SELECT interview.interview_id,com.company_name,hr.company_hr_name,pos.position_name," +
-            "interview.interview_time," +
-            "interview.interview_status," +
+    @Select("SELECT interview.interview_id,com.company_name," +
+            "hr.company_hr_name,pos.position_name," +
+            "interview.interview_time,interview.interview_status," +
             "interview.interview_student_status " +
             "from tbl_interview as interview " +
             "join tbl_position as pos on pos.position_id = interview.position_id " +

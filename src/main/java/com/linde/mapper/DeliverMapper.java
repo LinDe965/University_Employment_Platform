@@ -31,7 +31,8 @@ public interface DeliverMapper extends BaseMapper<Deliver> {
             "stu.student_name LIKE CONCAT('%', #{studentName}, '%');")
     List<HrStudentDeliver> getPositionLikeByHr(String companyHrId,String studentName);
 
-    @Select("select deliver.deliver_id, stu.student_name,stu.student_subject,pos.position_name," +
+    @Select("select deliver.deliver_id, stu.student_name," +
+            "stu.student_subject,pos.position_name," +
             "deliver.deliver_status,deliver.deliver_time " +
             "from tbl_deliver as deliver " +
             "join tbl_students as stu on deliver.student_id = stu.student_id " +
@@ -42,7 +43,8 @@ public interface DeliverMapper extends BaseMapper<Deliver> {
 
 
     //stu端数据回显
-    @Select("select com.company_name,pos.position_name,deliver.deliver_time,deliver.deliver_status " +
+    @Select("select com.company_name,pos.position_name," +
+            "deliver.deliver_time,deliver.deliver_status " +
             "from tbl_deliver as deliver " +
             "join tbl_position as pos on pos.position_id = deliver.position_id " +
             "join tbl_company_hr as hr on hr.company_hr_id = pos.company_hr_id " +

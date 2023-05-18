@@ -53,7 +53,8 @@ public interface SigningMapper extends BaseMapper<Signing> {
     List<HrStudentSigning> getStudentSigningByHrId(String companyHrId);
 
     @Select("SELECT sign.signing_id," +
-            "com.company_name,hr.company_hr_name,pos.position_name,sign.signing_time," +
+            "com.company_name,hr.company_hr_name," +
+            "pos.position_name,sign.signing_time," +
             "sign.signing_status,sign.signing_student_status " +
             "from tbl_signing as sign " +
             "join tbl_position as pos on pos.position_id = sign.position_id " +
@@ -74,7 +75,8 @@ public interface SigningMapper extends BaseMapper<Signing> {
     List<StudentSigning> getStudentSigningLikeByStudent(String studentId,String positionName);
 
     //admin 就业信息管理查看所有数据
-    @Select("select stu.student_name,stu.student_tel,stu.student_subject,stu.student_end_year," +
+    @Select("select stu.student_name,stu.student_tel,stu.student_subject," +
+            "stu.student_end_year," +
             "com.company_name,com.company_industry,pos.position_name " +
             "from tbl_students as stu " +
             "join tbl_signing as sign on sign.student_id = stu.student_id " +

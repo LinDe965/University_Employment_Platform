@@ -20,7 +20,8 @@ import java.util.List;
 public interface FavoritesMapper extends BaseMapper<Favorites> {
 
     @Select("SELECT fav.favorites_id," +
-            "com.company_name,hr.company_hr_name,pos.position_name,fav.student_favorites_time,fav.favorites_status " +
+            "com.company_name,hr.company_hr_name," +
+            "pos.position_name,fav.student_favorites_time,fav.favorites_status " +
             "from tbl_favorites as fav " +
             "join tbl_position as pos on pos.position_id = fav.position_id " +
             "join tbl_company_hr as hr on hr.company_hr_id = pos.company_hr_id " +

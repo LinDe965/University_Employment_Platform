@@ -23,8 +23,7 @@ public interface CompanyHrMapper extends BaseMapper<CompanyHr> {
             "com.company_name,hr.company_hr_name,hr.company_hr_tel,hr.company_hr_email, " +
             "hr.deleted " +
             "from tbl_company_hr as hr " +
-            "join tbl_company as com on com.company_id = hr.company_id " +
-            ";")
+            "join tbl_company as com on com.company_id = hr.company_id ;")
     List<AdminHr> getCompanyHrAllByAdmin();
 
     @Select("select hr.company_hr_id," +

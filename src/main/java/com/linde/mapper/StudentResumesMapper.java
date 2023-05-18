@@ -20,8 +20,11 @@ import java.util.List;
 
 @Mapper
 public interface StudentResumesMapper extends BaseMapper<StudentResumes> {
-    @Select("select stu.student_id,stu.student_name,stu.student_tel,student_email,stu.student_subject,stu.student_end_year," +
-            "res.resume_experience,res.resume_skills,res.resume_evaluation,res.resume_salary_expectation " +
+    @Select("select stu.student_id,stu.student_name," +
+            "stu.student_tel,student_email,stu.student_subject," +
+            "stu.student_end_year," +
+            "res.resume_experience,res.resume_skills," +
+            "res.resume_evaluation,res.resume_salary_expectation " +
             "from tbl_students as stu " +
             "JOIN tbl_student_resumes as res on stu.student_id = res.student_id " +
             "JOIN tbl_deliver as deliver on stu.student_id = deliver.student_id " +
